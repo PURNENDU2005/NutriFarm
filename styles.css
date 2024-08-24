@@ -52,7 +52,7 @@ body{
 {
     width: 100%;
     height: auto;
-    background-image: url(/img/new.jpg);
+    background-image: url(new.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
