@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>NutriFarm</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="">Home</a>
+        <a href="">Learn</a>
+        <a href="">Farm</a>
+        <a href="">About</a>
+    </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+
+            <div class="headline">
+                <p class="text">
+                    Discover the Perfect Fertilizer for Your Soil and Plants
+                </p>
+            </div>
+          
+            <div class="tutu">
+                <h1>
+                    <a style="--clr: #7808d0" class="button" href="survey.html">
+                        <span class="button__icon-wrapper">
+                            <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                            </svg>
+                            
+                            <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="15" fill="none" viewBox="0 0 14 15">
+                                <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                            </svg>
+                        </span>
+                        Get Recommendation
+                    </a>
+                </h1>
+            </div>
+            
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+
+  <script>
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+
+    let currentIndex = 0;
+    const slideWidth = slides[0].clientWidth;
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+    }
+
+    function updateSlider() {
+      const offset = -currentIndex * slideWidth;
+      slider.style.transform = `translateX(${offset}px)`;
+    }
+
+    setInterval(nextSlide, 4000); // Automatic slide every 5 seconds
+  </script>
+</html>
