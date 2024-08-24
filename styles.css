@@ -12,7 +12,7 @@ body{
     width: 100%;
     height: 0.2cm;
     padding: 20px 100px;
-    background: rgba(0, 0, 0, 0.094);
+    background: rgba(0, 0, 0, 0.219);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 14px 15px -1px rgba(0, 0, 0, 0.163),
@@ -34,25 +34,29 @@ body{
     color: aliceblue;
     text-decoration: none;
     font-weight: 700;
-    margin-left: 10px;
+    margin-left: 5px;
   }
   
   .navbar a {
-    font-size: 18px;
-    color: rgb(255, 255, 233);
+    font-size: 23px;
+    color: rgb(255, 255, 255);
     font-weight: 900;
     text-decoration: none;
-    margin-left: 70px;
+    margin-left: 50px;
     background: rgba(0, 0, 0, 0);
     z-index: 111;
   }
 
+.navbar
+{
+    margin-right: 4cm;
+}
 
 .hero
 {
     width: 100%;
     height: auto;
-    background-image: url('new.jpg');
+    background-image: url(/img/new.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -162,3 +166,71 @@ body{
     transition: transform .3s ease-in-out .1s;
     transform: translate(0);
   }
+
+  .learn
+{
+    width: 100%;
+    height: auto;
+    background-color: rgb(14, 14, 14);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+
+
+
+
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 0 auto;
+    transform: rotate(45deg);
+}
+
+.gallery-item {
+    width: 25%;
+    padding-bottom: 25%;
+    position: relative;
+    overflow: hidden;
+    transform: rotate(-45deg);
+    margin: -2.5%;
+    border: 2px solid white;
+}
+
+.gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.learn-sub
+{
+    color: #fff;
+    display: flex;
+    justify-content: space-evenly;
+    /* justify-items: center; */
+    gap: 5cm;
+
+}
+
+.item
+{
+    background-color: darkgray;
+    width: 10cm;
+    height: 10cm;
+}
