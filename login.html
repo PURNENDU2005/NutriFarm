@@ -143,11 +143,13 @@
         }
 
         @keyframes show {
+
             0%,
             49.99% {
                 opacity: 0;
                 z-index: 1;
             }
+
             50%,
             100% {
                 opacity: 1;
@@ -281,7 +283,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
-        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
+        import { getDatabase, ref, set, update } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyBg76MLXNblBT_PPYUUR2S7Kfe1p5hRQbY",
@@ -298,50 +300,67 @@
         const auth = getAuth(app);
         const database = getDatabase(app);
 
-        const signUpForm = document.getElementById("signUpForm");
-        const signInForm = document.getElementById("signInForm");
+        document.getElementById('signUpButton').addEventListener('click', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('signup_username').value;
+            const email = document.getElementById('signup_email').value;
+            const password = document.getElementById('signup_password').value;
 
-        signUpForm.addEventListener("submit", async (event) => {
-            event.preventDefault();
-            const username = document.getElementById("signup_username").value;
-            const email = document.getElementById("signup_email").value;
-            const password = document.getElementById("signup_password").value;
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert('User created!');
 
-            try {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                const user = userCredential.user;
-                await set(ref(database, 'users/' + user.uid), {
-                    username: username,
-                    email: email,
-                    password: password // Not recommended: storing passwords directly
+                    set(ref(database, 'users/' + user.uid), {
+                        username: username,
+                        email: email,
+                        password: password  // Storing password in plain text (not recommended for production)
+                    }).then(() => {
+                        console.log('User data saved successfully');
+                        window.location.href = 'index2.html'; // Redirect to index2.html
+                    }).catch((error) => {
+                        console.error('Error saving user data:', error);
+                    });
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    console.error('Error during sign-up:', errorMessage);
+                    alert(errorMessage);
                 });
-                alert("User created successfully");
-                signUpForm.reset();
-            } catch (error) {
-                console.error(error.message);
-            }
         });
 
-        signInForm.addEventListener("submit", async (event) => {
-            event.preventDefault();
-            const email = document.getElementById("signin_email").value;
-            const password = document.getElementById("signin_password").value;
+        document.getElementById('signInButton').addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('signin_email').value;
+            const password = document.getElementById('signin_password').value;
 
-            try {
-                await signInWithEmailAndPassword(auth, email, password);
-                alert("Signed in successfully");
-                signInForm.reset();
-            } catch (error) {
-                console.error(error.message);
-            }
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    alert('User signed in successfully!');
+
+                    // Update last login time
+                    update(ref(database, 'users/' + user.uid), {
+                        last_login: new Date().toLocaleString()
+                    }).then(() => {
+                        window.location.href = 'index2.html'; // Redirect to index2.html
+                    }).catch((error) => {
+                        console.error('Error updating last login time:', error);
+                    });
+                })
+                .catch((error) => {
+                    const errorMessage = error.message;
+                    console.error('Error during sign-in:', errorMessage);
+                    alert(errorMessage);
+                });
         });
 
         document.getElementById('goSignUp').addEventListener('click', () => {
-            document.getElementById('container').classList.add('right-panel-active');
+            document.getElementById('container').classList.add("right-panel-active");
         });
 
         document.getElementById('goSignIn').addEventListener('click', () => {
-            document.getElementById('container').classList.remove('right-panel-active');
+            document.getElementById('container').classList.remove("right-panel-active");
         });
     </script>
 </body>
