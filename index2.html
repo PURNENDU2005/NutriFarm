@@ -1,9 +1,9 @@
-<!-- start of code -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="x-icon" href="/img/new.jpg">
     <link rel="stylesheet" href="styles.css" />
     <title>NutriFarm</title>
   </head>
@@ -14,16 +14,13 @@
 
         <nav class="navbar">
             <a href="#home">Home</a>
-
-            <a href="05.html">Learn</a>
             <a href="#learn">Learn</a>
-
-            <a href="#skill">Farm</a>
-            <a href="#contact">About</a>
+            <a href="#farm">Farm</a>
+            <a href="#about">About</a>
         </nav>
     </header>
     <main>
-      <section class="hero">
+      <section class="hero" id="home">
         <div class="hero-text">
 
             <div class="headline">
@@ -68,15 +65,15 @@
 
               <div class="service">
                 <div class="image-container">
-                  <img src="ee.webp" class="tvv" alt="Image">
+                  <img src="/img/ee.webp" class="tvv" alt="Image">
                   <div class="overlay">Education Hub</div>
                 </div>
                 <div class="image-container">
-                  <img src="rrr.jpg" class="tvv" alt="Image">
+                  <img src="/img/rrr.jpg" class="tvv" alt="Image">
                   <div class="overlay">News</div>
                 </div>
                 <div class="image-container">
-                  <img src="dw.jpg" class="tvv" alt="Image">
+                  <img src="/img/dw.jpg" class="tvv" alt="Image">
                   <div class="overlay">Finance</div>
                 </div>
               </div>
@@ -84,7 +81,7 @@
 
 
               <div>
-                <button class="cssbuttons-io-button">
+                <button class="cssbuttons-io-button" onclick="window.location.href='learn.html'">
                   <p id="kk">Let's Explore</p>
                   <div class="icon">
                     <svg
@@ -115,17 +112,80 @@
 
 
 
-      <section class="About" id="about">
+      <section class="Farm" id="farm">
+      </section>
 
-        
+
+      <section  class="About" id="about">
+
+        <section class="about">
+          <h2>Our Mission</h2>
+          <p>NutriFarm is a groundbreaking platform designed to empower farmers by providing personalized recommendations for fertilizers, access to the latest agricultural news, educational resources, and information on government schemes. Our aim is to revolutionize the agricultural sector by leveraging technology to improve farm management and productivity.</p>
+      </section>
+  
+      <section class="gallery">
+          <h2>Image Gallery</h2>
+          <img src="https://greentumble.com/wp-content/uploads/2015/12/Pros-and-Cons-of-Using-Agricultural-Fertilizers.jpg" alt="Gallery Image 1">
+          <img src="https://j19agriculture.com/wp-content/uploads/2020/06/AdobeStock_231566167-scaled.jpeg" alt="Gallery Image 2">
+          <img src="https://wallup.net/wp-content/uploads/2019/09/646385-john-deere-tractor-farm-industrial-farming-1jdeere-construction.jpg" alt="Gallery Image 3">
+          <img src="https://th.bing.com/th/id/OIP.YHvH4f3ggq3HGjCsSqDD4AHaE8?rs=1&pid=ImgDetMain" alt="Gallery Image 4">
+          <img src="https://i.natgeofe.com/n/748f1c42-0d8b-498e-85fd-88151c6f863b/01_organic_farming_i8860_20181003_11260.jpg?w=1200" alt="Gallery Image 5">
+          <img src="https://fastfoodjustice.org/wp-content/uploads/2023/12/Growing-Poppy-Seeds-from-Grocery-Store.jpg" alt="Gallery Image 5">
+          <img src="https://media.istockphoto.com/photos/farmer-hand-giving-plant-organic-humus-fertilizer-to-plant-picture-id684977254?k=6&m=684977254&s=170667a&w=0&h=ppldHJe_3friNLDQQCta7_RCBX561Zgw6RtgHI1gY1M=" alt="Gallery Image 5">
+          <img src="https://th.bing.com/th/id/R.f0a487b48b6014c2cc37bab16154757a?rik=JmQ4IhnmBN4Svg&riu=http%3a%2f%2fwww.americanenvironics.com%2fwp-content%2fuploads%2f2019%2f04%2fimages2461-5ca32ff0a1484-678x381.jpg&ehk=Vl4x3p2dt7y2obGmHaJdGBYwEtCIBdEb0xKU%2fhyejrs%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Gallery Image 5">
+          <img src="https://th.bing.com/th/id/OIP.IvgjSgcJC4bCDfbBxTNE6wHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain" alt="Gallery Image 5">
+      </section>
+  
+      <section class="testimonial">
+          <h2>What Our Users Say</h2>
+          <div class="slides">
+              <div class="slide">
+                  <img src="https://fazlaninaturesnest.com/wp-content/uploads/2022/10/Exploring-the-Benefits-of-Organic-Farming_Putting-Wellness-and-Sustainability-Ahead_1-1.jpg" alt="User 1">
+                  <blockquote>"AgriAssist has completely transformed how I manage my farm. The recommendations are spot on, and I love the personalized analysis features!"</blockquote>
+                  <footer>- Sarah Johnson</footer>
+              </div>
+              <div class="slide">
+                  <img src="https://foodgrowershub.com/wp-content/uploads/2021/05/Grow-Your-Own-Tomato-Kit-1.jpeg" alt="User 2">
+                  <blockquote>"This platform is a game changer. It keeps me informed with the latest news and schemes, which helps me make better decisions."</blockquote>
+                  <footer>- John Doe</footer>
+              </div>
+              <div class="slide">
+                  <img src="https://th.bing.com/th/id/OIP.Iy288TgHJHB7DD6oZsa5YgHaE7?w=900&h=599&rs=1&pid=ImgDetMain" alt="User 3">
+                  <blockquote>"The educational resources are top-notch. I've learned so much, and my productivity has improved significantly."</blockquote>
+                  <footer>- Thomas Miller</footer>
+              </div>
+              <div class="slide">
+                  <img src="https://grist.org/wp-content/uploads/2014/07/female-farmer.jpg" alt="User 4">
+                  <blockquote>"I can't imagine going back to how things were before AgriAssist. It's an essential tool for any serious farmer."</blockquote>
+                  <footer>- Emily Smith</footer>
+              </div>
+          </div>
+      </section>
+  
+      <section class="contact">
+          <h2>Contact Us</h2>
+          <form>
+              <input type="text" name="name" placeholder="Your Name" required>
+              <input type="email" name="email" placeholder="Your Email" required>
+              <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+              <button type="submit">Send Message</button>
+          </form>
+      </section>
+  
+      <footer>
+          <p>&copy; 2024 NutriFarm. All rights reserved.</p>
+      </footer>
 
       </section>
+
+
+
     </main>
     <footer></footer>
   </body>
 
   <script>
-    const slider = document.querySelector ('.slider');
+    const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
 
     let currentIndex = 0;
@@ -143,4 +203,24 @@
 
     setInterval(nextSlide, 4000); // Automatic slide every 5 seconds
   </script>
+
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+      let slides = document.querySelectorAll('.testimonial .slide');
+      slides.forEach(slide => {
+          slide.style.display = 'none';
+      });
+
+      slideIndex++;
+      if (slideIndex > slides.length) {
+          slideIndex = 1;
+      }
+
+      slides[slideIndex - 1].style.display = 'flex';
+      setTimeout(showSlides, 3000); // Change slide every 3 seconds
+  }
+</script>
 </html>
