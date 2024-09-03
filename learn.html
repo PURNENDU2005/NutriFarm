@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="/img/new.jpg">
+
+    <link rel="stylesheet" href="learn.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index2.html" class="logo">NutriFarm</a>
+
+        <nav class="navbar">
+            <a href="#ne">News</a>
+            <a href="#le">Learn</a>
+            <a href="#se">Scheme</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="Learn">
+
+            <div class="ne" id="ne">
+                <div class="imm">
+                    <h3>Today's News</h3>
+                </div>
+                <div class="slider">
+                    <div class="slides">
+                        
+                        <div class="img">
+                            <img src="/img/a.jpg" alt="Image 1">
+                        <div class="text">This is text over the image</div>
+                        </div>
+
+
+                        <div class="img">
+                            <img src="/img/e.jpg" alt="Image 2">
+                        <div class="text">This is text over the image</div>
+                        </div>
+
+
+                        <div class="img">
+                            <img src="/img/dd.jpg" alt="Image 3">
+                        <div class="text">This is text over the image</div>
+                        </div>
+                       
+                    </div>
+                </div>
+
+
+                <div class="main">
+                    <!-- Article 1 -->
+                    <div class="article">
+                        <img src="/img/g.jpg" alt="News Image 1">
+                        <h2>Breaking News: Event Title</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel libero id libero tempus consectetur.</p>
+                        <a href="#">Read more</a>
+                    </div>
+            
+                    <!-- Article 2 -->
+                    <div class="article">
+                        <img src="/img/learn.jpg" alt="News Image 2">
+                        <h2>Latest Update: Another Event</h2>
+                        <p>Suspendisse potenti. Sed in tellus ut ligula volutpat congue. Sed vestibulum, tortor in fermentum.</p>
+                        <a href="#">Read more</a>
+                    </div>
+            
+                    <!-- Article 3 -->
+                    <div class="article">
+                        <img src="/img/hq720.jpg" alt="News Image 3">
+                        <h2>News Headline: Important Information</h2>
+                        <p>Curabitur imperdiet, justo ac blandit suscipit, felis lectus feugiat neque, vitae cursus turpis nisi.</p>
+                        <a href="#">Read more</a>
+                    </div>
+            
+                    <!-- Add more articles as needed -->
+                </div>
+
+            </div>
+
+            <div class="le" id="le">
+                <div class="tuk">
+                    <h3>Educational-Hub</h3>
+                </div>
+                <div class="lkk">
+                    <div class="ak">
+                        <iframe width="400" height="260" src="https://www.youtube.com/embed/NCp93xbSwWM?si=0WhWVQ-csUBPvuG3" title="YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="ak">
+                        <iframe width="400" height="260" src="https://www.youtube.com/embed/5RQU2V1CCAk?si=Q_CQm9UVRka6mhnW" title="YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <div class="ak">
+                        <iframe width="400" height="260" src="https://www.youtube.com/embed/8ulpy_GFLDk?si=ETFuk5SfYIFd3G7D" title="YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+
+                <div class="oli">
+                    <button class="cssbuttons-io-button" onclick="window.location.href='edu-hub.html'">
+                      <p id="kk">Get More</p>
+                      <div class="icon">
+                        <svg
+                          height="24"
+                          width="24"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      </div>
+                    </button>
+                    
+                  </div>
+
+
+            </div>
+
+            <div class="se" id="se">
+                <div class="llo">
+                    <h3> Schemes</h3>
+                </div>
+                <section class="scheme-list" id="schemeList">
+                    <!-- Scheme cards will be dynamically inserted here -->
+                </section>
+            
+                <!-- Scheme Details Modal -->
+                <div id="schemeModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="modalClose">&times;</span>
+                        <div id="schemeDetails">
+                            <h2>Scheme Details</h2>
+                            <p>Select a scheme to see the details.</p>
+                        </div>
+                        <div class="apply-section" id="applySection" style="display: none;">
+                            <h2>Apply for Scheme</h2>
+                            <form id="applyForm" enctype="multipart/form-data">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" placeholder="Enter your name" required>
+            
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" placeholder="Enter your email" required>
+            
+                                <label for="phone">Phone Number:</label>
+                                <input type="number" id="phone" placeholder="Enter your phone number" required>
+            
+                                <label for="address">Address:</label>
+                                <textarea id="address" rows="4" placeholder="Enter your full address" required></textarea>
+            
+                                <label for="landSize">Land Size (in acres):</label>
+                                <input type="number" id="landSize" placeholder="Enter the size of your land" required>
+            
+                                <label for="idProof">Upload ID Proof (PDF, JPEG, PNG):</label>
+                                <input type="file" id="idProof" accept=".pdf,.jpg,.jpeg,.png" required>
+            
+                                <label for="landOwnership">Upload Land Ownership Document (PDF, JPEG, PNG):</label>
+                                <input type="file" id="landOwnership" accept=".pdf,.jpg,.jpeg,.png" required>
+            
+                                <button type="submit">Apply Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    let currentIndex = 0;
+    const totalImages = images.length;
+
+    function slideImages() {
+        currentIndex++;
+        if (currentIndex >= totalImages) {
+            currentIndex = 0;
+        }
+        slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+    }
+
+    setInterval(slideImages, 2000); // Slide every 2 seconds
+    </script>
+
+<script>
+    // Sample scheme data with image URLs
+    const schemes = [
+        {
+            title: "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+            image: "https://s3.amazonaws.com/lms24x7/gsktestimonials/uploads/2021/12/30164625/Pradhan-Mantri-KISAN-Samman-Nidhi.jpg",
+            description: "Provides income support to all landholding farmers' families to supplement their financial needs for procuring various inputs to ensure proper crop health and appropriate yields.",
+            eligibility: "All landholding farmers are eligible. Small and marginal farmers are given priority.",
+            benefits: "₹6,000 per year is provided to farmers, payable in three equal installments of ₹2,000 each.",
+            application: "Farmers need to register with their local agriculture office."
+        },
+        {
+            title: "Kisan Credit Card (KCC)",
+            image: "https://cdn.tractorkarvan.com/tr:f-webp/images/Blogs/kisan-credit-card-scheme/Kisan-Credit-Card-Scheme-Blog.jpg",
+            description: "Provides timely credit to farmers to meet their short-term and long-term needs for cultivation, post-harvest expenses, produce marketing, etc.",
+            eligibility: "All farmers, including tenant farmers, oral lessees, and sharecroppers.",
+            benefits: "Interest rates as low as 2% on loans up to ₹3 lakh, flexible repayment options.",
+            application: "Visit your nearest bank or apply through the official portal."
+        },
+        {
+            title: "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+            image: "https://th.bing.com/th/id/OIP.rJ9kjTXtgYF8D7AYrTdWnAHaDt?rs=1&pid=ImgDetMain",
+            description: "Aims to provide insurance coverage and financial support to farmers in the event of crop failure due to natural calamities, pests, and diseases.",
+            eligibility: "All farmers growing notified crops in a notified area are eligible.",
+            benefits: "Coverage of crop loss at low premium rates.",
+            application: "Contact your insurance provider or apply through the official portal."
+        },
+        // {
+        //     title: "Soil Health Card Scheme",
+        //     image: "https://via.placeholder.com/300x180.png?text=Soil+Health+Card",
+        //     description: "Promotes soil test-based and balanced use of fertilizers to enable farmers to improve soil health and increase productivity.",
+        //     eligibility: "All farmers across India are eligible for this scheme.",
+        //     benefits: "Farmers receive a soil health card once in every two years, providing information on nutrient status and recommendations.",
+        //     application: "Approach the nearest agriculture office or apply online."
+        // },
+        {
+            title: "Paramparagat Krishi Vikas Yojana (PKVY)",
+            image: "https://cmv360.s3.ap-southeast-1.amazonaws.com/Paramparagat_Krishi_Vikas_Yojana_CMV_360_633fca58cc.jpg",
+            description: "Promotes organic farming practices and provides financial assistance to farmers adopting organic methods.",
+            eligibility: "All farmers and farmer groups practicing organic farming.",
+            benefits: "Financial support for organic farming inputs, training, and certification.",
+            application: "Apply through local agriculture departments or online."
+        }
+        // {
+        //     title: "National Agriculture Market (eNAM)",
+        //     image: "https://via.placeholder.com/300x180.png?text=eNAM",
+        //     description: "An online trading platform that connects existing APMC mandis to create a unified national market for agricultural commodities.",
+        //     eligibility: "Farmers, traders, and buyers across India.",
+        //     benefits: "Transparent pricing, better market reach, reduced transaction costs.",
+        //     application: "Register on the eNAM portal."
+        // }
+    ];
+
+    // Function to display the schemes
+    function displaySchemes() {
+        const schemeList = document.getElementById('schemeList');
+        schemeList.innerHTML = schemes.map(scheme => `
+            <div class="scheme-card" onclick="viewScheme('${scheme.title}')">
+                <img src="${scheme.image}" alt="${scheme.title}">
+                <div class="scheme-card-content">
+                    <h3>${scheme.title}</h3>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Function to view scheme details in a modal
+    function viewScheme(title) {
+        const scheme = schemes.find(s => s.title === title);
+        document.getElementById('schemeDetails').innerHTML = `
+            <h2>${scheme.title}</h2>
+            <img src="${scheme.image}" alt="${scheme.title}" style="width:100%; height:auto; border-radius: 8px;">
+            <p><strong>Description:</strong> ${scheme.description}</p>
+            <p><strong>Eligibility:</strong> ${scheme.eligibility}</p>
+            <p><strong>Benefits:</strong> ${scheme.benefits}</p>
+            <p><strong>Application Process:</strong> ${scheme.application}</p>
+            <button onclick="showApplyForm()">Apply Now</button>
+        `;
+        document.getElementById('schemeModal').style.display = 'block';
+    }
+
+    // Function to close the modal
+    document.getElementById('modalClose').onclick = function() {
+        document.getElementById('schemeModal').style.display = 'none';
+        document.getElementById('applySection').style.display = 'none';
+    };
+
+    // Function to show the apply form
+    function showApplyForm() {
+        document.getElementById('applySection').style.display = 'block';
+    }
+
+    // Function to handle form submission
+    document.getElementById('applyForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const landSize = document.getElementById('landSize').value;
+        const idProof = document.getElementById('idProof').files[0];
+        const landOwnership = document.getElementById('landOwnership').files[0];
+
+        // Basic validation
+        if (!name || !email || !phone || !address || !landSize || !idProof || !landOwnership) {
+            alert('Please fill out all fields and upload all required documents.');
+            return;
+        }
+
+        // Validate file types
+        const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png'];
+        if (!allowedTypes.includes(idProof.type) || !allowedTypes.includes(landOwnership.type)) {
+            alert('Please upload valid file types (PDF, JPEG, PNG).');
+            return;
+        }
+
+        // Validate file size (e.g., 5MB max)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (idProof.size > maxSize || landOwnership.size > maxSize) {
+            alert('File size should not exceed 5MB.');
+            return;
+        }
+
+        // Assuming we're sending data to a server; for now, just alert success
+        alert('Application submitted successfully!');
+        
+        // Reset the form and close the modal
+        document.getElementById('applyForm').reset();
+        document.getElementById('schemeModal').style.display = 'none';
+        document.getElementById('applySection').style.display = 'none';
+    });
+
+    // Initialize the page by displaying schemes
+    window.onload = displaySchemes;
+</script>
+</body>
+
+</html>
