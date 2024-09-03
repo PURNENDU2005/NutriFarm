@@ -1,0 +1,382 @@
+*
+{
+    margin: 0 ;
+    padding: 0;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.2cm;
+    padding: 20px 100px;
+    background: rgba(0, 0, 0, 0.219);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 14px 15px -1px rgba(0, 0, 0, 0.163),
+      0 6px 10px -1px rgba(0, 0, 0, 0.111);
+    /* border-bottom: 0.1px solid rgba(255, 255, 255, 0.18); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    transition: 0.55s ease transform;
+  }
+  
+  .hidden {
+    transform: translateY(-100%);
+  }
+  
+  .logo {
+    font-size: 32px;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+  }
+  
+  .navbar a {
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    text-decoration: none;
+    margin-left: 50px;
+    background: rgba(0, 0, 0, 0);
+    z-index: 111;
+  }
+  
+  .navbar {
+    margin-right: 4cm;
+  }
+
+.Learn
+{
+    background-image: url(img/forest.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-items: center;
+    gap: 1cm;
+    
+}
+
+.ne
+{
+    width: 34cm;
+    height: 155vh;
+    border: 2px solid rgb(255, 255, 255);
+    margin-top: 2cm;
+}
+
+.le
+{
+    width: 34cm;
+    height: 11cm;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.se
+{
+    width: 34cm;
+    height: 10cm;
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.slider {
+    width: 100%;
+    max-width: 1000px; /* Adjust the max-width of the slider box */
+    height: 500px; /* Set the height of the slider box */
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    border: 2px solid #ccc; /* Optional: Add a border to the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow to the box */
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slides .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This ensures the image covers the box without repeating */
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+.article {
+    background-color: white;
+    margin: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.article img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.article h2 {
+    font-size: 1.5em;
+    margin: 15px 0;
+}
+
+.article p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.article a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.article a:hover {
+    text-decoration: underline;
+}
+
+.imm
+{
+    color: white;
+    font-size: larger;
+    font-weight: 900;
+    text-align: center;
+    margin: 10px;
+}
+
+.lkk
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    justify-items: center;
+    flex-wrap: nowrap;
+}
+
+.tuk
+{
+    color: white;
+    font-size: larger;
+    font-weight: 900;
+    text-align: center;
+    margin: 10px;
+}
+
+
+
+
+.cssbuttons-io-button {
+    background: #000000;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #000000;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    cursor: pointer;
+  }
+  
+  .cssbuttons-io-button .icon {
+    background: rgb(255, 255, 255);
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 1px 1px 10px 1px #565656;
+    right: 0.3em;
+    transition: all 0.3s;
+  }
+  
+  .cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+  }
+  
+  .cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #000000;
+  }
+  
+  .cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+  }
+  
+  .cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+  }
+
+  .oli
+  {
+    margin-left: 20px;
+    margin-top: 17px;
+  }
+
+  .ak iframe{
+    border: 1px solid white;
+  }
+
+
+  .scheme-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.scheme-card {
+    background-color: #fff;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+}
+.scheme-card:hover {
+    transform: scale(1.05);
+}
+.scheme-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.scheme-card-content {
+    padding: 15px;
+}
+.scheme-card-content h3 {
+    margin: 0;
+    color: #4CAF50;
+    font-size: 18px;
+}
+.scheme-details, .apply-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.apply-section {
+    margin-top: 20px;
+}
+input[type="text"], input[type="email"], input[type="number"], textarea, input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button, .close-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+button:hover, .close-button:hover {
+    background-color: #45a049;
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #555;
+}
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 700px;
+    border-radius: 8px;
+    position: relative;
+}
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+@media (max-width: 600px) {
+    .scheme-card {
+        width: 100%;
+    }
+    .modal-content {
+        width: 95%;
+    }
+}
+
+.llo
+{
+  color: white;
+  font-weight: 900;
+  text-align: center;
+  margin: 15px;
+  font-size: larger;
+}
