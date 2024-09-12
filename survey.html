@@ -20,9 +20,10 @@
             display: none;
             justify-content: center;
             align-items: center;
-            height: 10cm;
+            height: 12cm;
             width: 16cm;
             padding: 20px;
+            margin-top:-50px ;
             background: white;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -48,7 +49,7 @@
             margin-bottom: 10px;
             font-size: 1.2em;
             color: #333;
-            text-align: center;
+            text-align: left;
         }
 
         label {
@@ -88,6 +89,7 @@
             height: 12cm;
             width: 18cm;
             padding: 20px;
+            padding-left: 200px;
         }
 
         @keyframes fadeIn {
@@ -118,6 +120,9 @@
                 <option value="wheat">Wheat</option>
                 <option value="corn">Corn</option>
                 <option value="rice">Rice</option>
+                <option value="barley">Baaley</option>
+                <option value="soybean">Soyabean</option>
+                <!-- <option value="soybean">Soyabean</option> -->
                 <!-- Add more crop types as needed -->
             </select>
             <div class="navigation">
@@ -126,16 +131,29 @@
             </div>
         </div>
         <div class="slide">
-            <h2>Step 3: Previous Fertilizer Used</h2>
-            <label for="previous-fertilizer">Previous Fertilizer:</label>
-            <input type="text" id="previous-fertilizer" placeholder="e.g., NPK 10-10-10">
+            <h2>Step 3: Select Season</h2>
+            <label for="season">Season:</label>
+            <select id="season">
+                <option value="summer">Summer</option>
+                <option value="winter">Winter</option>
+                <option value="rainy">Rainy</option>
+            </select>
             <div class="navigation">
                 <button onclick="prevSlide()">Previous</button>
                 <button onclick="nextSlide()">Next</button>
             </div>
         </div>
         <div class="slide">
-            <h2>Step 4: Desired Yield</h2>
+            <h2>Step 4: Soil pH Level</h2>
+            <label for="ph-level">pH Level:</label>
+            <input type="text" id="ph-level" placeholder="e.g., 6.5">
+            <div class="navigation">
+                <button onclick="prevSlide()">Previous</button>
+                <button onclick="nextSlide()">Next</button>
+            </div>
+        </div>
+        <div class="slide">
+            <h2>Step 5: Desired Yield</h2>
             <label for="desired-yield">Desired Yield (kg/acre):</label>
             <input type="text" id="desired-yield" placeholder="e.g., 500">
             <div class="navigation">
@@ -147,11 +165,12 @@
             <h2>Review Your Inputs</h2>
             <p><strong>Soil Type:</strong> <span id="review-soil"></span></p>
             <p><strong>Crop Type:</strong> <span id="review-crop"></span></p>
-            <p><strong>Previous Fertilizer:</strong> <span id="review-fertilizer"></span></p>
+            <p><strong>Season:</strong> <span id="review-season"></span></p>
+            <p><strong>Soil pH Level:</strong> <span id="review-ph"></span></p>
             <p><strong>Desired Yield:</strong> <span id="review-yield"></span></p>
             <div class="navigation">
                 <button onclick="prevSlide()">Previous</button>
-                <button onclick="showFertilizerScreen()">Get Fertilizer</button>
+                <button onclick="showFertilizerScreen()">Get Fertilizer Recommendation</button>
             </div>
         </div>
     </div>
@@ -170,7 +189,8 @@
         function showReview() {
             document.getElementById('review-soil').innerText = document.getElementById('soil-type').value;
             document.getElementById('review-crop').innerText = document.getElementById('crop-type').value;
-            document.getElementById('review-fertilizer').innerText = document.getElementById('previous-fertilizer').value;
+            document.getElementById('review-season').innerText = document.getElementById('season').value;
+            document.getElementById('review-ph').innerText = document.getElementById('ph-level').value;
             document.getElementById('review-yield').innerText = document.getElementById('desired-yield').value;
             review.classList.add('active');
             slides.forEach(slide => slide.classList.remove('active'));
@@ -199,12 +219,138 @@
         function showFertilizerScreen() {
             const soilType = document.getElementById('soil-type').value;
             const cropType = document.getElementById('crop-type').value;
-            const previousFertilizer = document.getElementById('previous-fertilizer').value;
+            const season = document.getElementById('season').value;
+            const phLevel = document.getElementById('ph-level').value;
             const desiredYield = document.getElementById('desired-yield').value;
 
-            const url = `fertilizer.html?soilType=${encodeURIComponent(soilType)}&cropType=${encodeURIComponent(cropType)}&previousFertilizer=${encodeURIComponent(previousFertilizer)}&desiredYield=${encodeURIComponent(desiredYield)}`;
+            const url = `fertilizer.html?soilType=${encodeURIComponent(soilType)}&cropType=${encodeURIComponent(cropType)}&season=${encodeURIComponent(season)}&phLevel=${encodeURIComponent(phLevel)}&desiredYield=${encodeURIComponent(desiredYield)}`;
             window.location.href = url;
         }
+        // This object will store the fertilizer recommendations based on various factors.
+    const fertilizerRecommendations = {
+        clay: {
+    rice: {
+        summer: { recommendation: "Nitrogen-rich fertilizer (NPK 16-20-0)", ph: "5.5 - 6.5", yield: "600-700 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 10-15-10)", ph: "6.0 - 7.0", yield: "400-500 kg/acre" },
+        rainy: { recommendation: "Potassium-heavy fertilizer (NPK 5-5-40)", ph: "5.0 - 6.0", yield: "550-650 kg/acre" }
+    },
+    barley: {
+        summer: { recommendation: "Phosphorus-heavy fertilizer (NPK 10-40-0)", ph: "6.0 - 7.5", yield: "450-550 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 12-12-12)", ph: "6.5 - 7.0", yield: "350-450 kg/acre" },
+        rainy: { recommendation: "Potassium-enhanced fertilizer (NPK 0-10-30)", ph: "5.5 - 6.5", yield: "400-500 kg/acre" }
+    }
+},
+silt: {
+    wheat: {
+        summer: { recommendation: "High Nitrogen fertilizer (NPK 20-10-10)", ph: "6.0 - 7.0", yield: "500-600 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 15-15-15)", ph: "6.5 - 7.5", yield: "400-500 kg/acre" },
+        rainy: { recommendation: "Potassium-based fertilizer (NPK 5-0-20)", ph: "5.5 - 6.5", yield: "450-550 kg/acre" }
+    },
+    corn: {
+        summer: { recommendation: "Phosphorus-enhanced fertilizer (NPK 8-24-8)", ph: "6.0 - 6.8", yield: "550-650 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 14-14-14)", ph: "6.5 - 7.5", yield: "450-550 kg/acre" },
+        rainy: { recommendation: "Potassium-heavy fertilizer (NPK 0-0-30)", ph: "5.5 - 6.2", yield: "400-500 kg/acre" }
+    }
+},
+loam: {
+    soybean: {
+        summer: { recommendation: "Nitrogen-enriched fertilizer (NPK 18-24-12)", ph: "6.0 - 6.8", yield: "300-400 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 10-10-10)", ph: "6.5 - 7.5", yield: "250-350 kg/acre" },
+        rainy: { recommendation: "Potassium-enhanced fertilizer (NPK 0-5-35)", ph: "5.5 - 6.5", yield: "280-380 kg/acre" }
+    },
+    rice: {
+        summer: { recommendation: "Phosphorus-rich fertilizer (NPK 12-30-12)", ph: "5.5 - 6.5", yield: "600-700 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 10-15-10)", ph: "6.0 - 7.0", yield: "450-550 kg/acre" },
+        rainy: { recommendation: "Potassium-heavy fertilizer (NPK 5-5-40)", ph: "5.5 - 6.5", yield: "550-650 kg/acre" }
+    }
+},
+sand: {
+    maize: {
+        summer: { recommendation: "Nitrogen-rich fertilizer (NPK 20-10-10)", ph: "6.0 - 6.5", yield: "500-600 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 15-15-15)", ph: "6.5 - 7.0", yield: "400-500 kg/acre" },
+        rainy: { recommendation: "Potassium-enriched fertilizer (NPK 0-10-40)", ph: "5.5 - 6.5", yield: "350-450 kg/acre" }
+    },
+    sunflower: {
+        summer: { recommendation: "Phosphorus-heavy fertilizer (NPK 10-20-10)", ph: "6.0 - 7.0", yield: "350-450 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 10-10-10)", ph: "6.5 - 7.5", yield: "300-400 kg/acre" },
+        rainy: { recommendation: "Potassium-enriched fertilizer (NPK 5-0-40)", ph: "5.5 - 6.5", yield: "320-420 kg/acre" }
+    }
+},
+loamy_sand: {
+    millet: {
+        summer: { recommendation: "Nitrogen-rich fertilizer (NPK 18-18-0)", ph: "6.0 - 6.5", yield: "200-300 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 10-20-10)", ph: "6.5 - 7.5", yield: "180-280 kg/acre" },
+        rainy: { recommendation: "Potassium-heavy fertilizer (NPK 0-10-30)", ph: "5.5 - 6.5", yield: "220-320 kg/acre" }
+    },
+    cotton: {
+        summer: { recommendation: "Nitrogen-enhanced fertilizer (NPK 20-10-10)", ph: "6.0 - 7.0", yield: "400-500 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 15-15-15)", ph: "6.5 - 7.5", yield: "350-450 kg/acre" },
+        rainy: { recommendation: "Potassium-enriched fertilizer (NPK 0-5-35)", ph: "5.5 - 6.5", yield: "320-420 kg/acre" }
+    }
+},
+sandy_loam: {
+    potatoes: {
+        summer: { recommendation: "High Nitrogen fertilizer (NPK 20-10-10)", ph: "5.5 - 6.5", yield: "500-600 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 15-15-15)", ph: "6.0 - 7.0", yield: "400-500 kg/acre" },
+        rainy: { recommendation: "Potassium-enriched fertilizer (NPK 0-10-40)", ph: "5.0 - 6.0", yield: "450-550 kg/acre" }
+    },
+    sugarcane: {
+        summer: { recommendation: "Nitrogen-enriched fertilizer (NPK 18-24-12)", ph: "6.0 - 7.0", yield: "600-700 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 12-12-12)", ph: "6.5 - 7.5", yield: "500-600 kg/acre" },
+        rainy: { recommendation: "Potassium-heavy fertilizer (NPK 0-0-40)", ph: "5.5 - 6.5", yield: "550-650 kg/acre" }
+    }
+},
+peat: {
+    vegetables: {
+        summer: { recommendation: "Nitrogen-heavy fertilizer (NPK 20-5-5)", ph: "5.5 - 6.5", yield: "300-400 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 10-10-10)", ph: "6.0 - 7.0", yield: "250-350 kg/acre" },
+        rainy: { recommendation: "Potassium-enriched fertilizer (NPK 0-10-30)", ph: "5.0 - 6.0", yield: "350-450 kg/acre" }
+    },
+    tomatoes: {
+        summer: { recommendation: "Phosphorus-rich fertilizer (NPK 12-30-10)", ph: "6.0 - 6.8", yield: "400-500 kg/acre" },
+        winter: { recommendation: "Balanced fertilizer (NPK 10-15-10)", ph: "6.5 - 7.5", yield: "350-450 kg/acre" },
+        rainy: { recommendation: "Potassium-heavy fertilizer (NPK 0-0-40)", ph: "5.5 - 6.5", yield: "450-550 kg/acre" }
+    }
+}
+
+        // clay: {
+        //     wheat: {
+        //         summer: { recommendation: "Nitrogen-based fertilizer (NPK 20-20-0)", ph: "6.0 - 7.0", yield: "400-500 kg/acre" },
+        //         winter: { recommendation: "Balanced fertilizer (NPK 10-20-10)", ph: "6.5 - 7.5", yield: "300-400 kg/acre" },
+        //         rainy: { recommendation: "Potassium-based fertilizer (NPK 0-0-50)", ph: "5.5 - 6.5", yield: "350-450 kg/acre" }
+        //     },
+        //     corn: {
+        //         summer: { recommendation: "High Phosphorus fertilizer (NPK 10-30-10)", ph: "6.0 - 6.8", yield: "500-600 kg/acre" },
+        //         winter: { recommendation: "Balanced fertilizer (NPK 15-15-15)", ph: "6.5 - 7.5", yield: "400-500 kg/acre" },
+        //         rainy: { recommendation: "Potassium-based fertilizer (NPK 0-0-30)", ph: "5.0 - 6.0", yield: "300-400 kg/acre" }
+        //     }
+        // },
+        // silt: {
+        //     // Add more crops and recommendations based on the soil type
+        // },
+        // loam: {
+        //     // Add more crops and recommendations based on the soil type
+        // }
+    };
+
+    function showFertilizerScreen() {
+        const soilType = document.getElementById('soil-type').value;
+        const cropType = document.getElementById('crop-type').value;
+        const season = document.getElementById('season').value;
+        const phLevel = document.getElementById('ph-level').value;
+        const desiredYield = document.getElementById('desired-yield').value;
+
+        // Get recommendation based on user input
+        const recommendation = fertilizerRecommendations[soilType]?.[cropType]?.[season];
+        if (recommendation) {
+            alert(`Recommended Fertilizer: ${recommendation.recommendation}\n
+                    Suitable pH: ${recommendation.ph}\n
+                    Estimated Yield: ${recommendation.yield}`);
+        } else {
+            alert("Sorry, no recommendation available for the selected inputs.");
+        }
+    }
+    
     </script>
 </body>
 </html>
